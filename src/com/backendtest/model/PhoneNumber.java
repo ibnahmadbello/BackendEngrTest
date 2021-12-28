@@ -8,10 +8,10 @@ public class PhoneNumber {
 	private String email;
 	private Date dateCreated;
 
-	public PhoneNumber(String name, String email, Date dateCreated) {
+	public PhoneNumber(String name, String email, Date dateCreated) throws Exception {
 		super();
 		this.name = name;
-		this.email = email;
+		validateEmail(email);
 		this.dateCreated = dateCreated;
 	}
 
@@ -28,6 +28,10 @@ public class PhoneNumber {
 	}
 
 	public void setEmail(String email) throws Exception {
+		validateEmail(email);
+	}
+
+	private void validateEmail(String email) throws Exception {
 		Pattern pattern = Pattern.compile("^(.+)@(.+)$");
 		if(email != null)
 		if(!pattern.matcher(email).matches())
@@ -40,7 +44,7 @@ public class PhoneNumber {
 		return dateCreated;
 	}
 
-	public void setDateCreated(Date dateCreated) {
-		this.dateCreated = dateCreated;
+	public void setDateCreated() {
+		this.dateCreated = new Date();
 	}
 }
