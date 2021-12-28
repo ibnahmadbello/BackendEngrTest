@@ -16,6 +16,16 @@ public class MainClass {
 		phoneNumbers = new ArrayList<PhoneNumber>();
 		displayMenu();
 
+		userInteraction();
+
+//		PhoneNumber $080 = new PhoneNumber("Jame", "abc", new Date());
+//		numbers.add($080);
+//		
+//		PhoneNumber $090 = new PhoneNumber("Smith", "xyz", new Date());
+//		numbers.add($090);
+	}
+
+	private static void userInteraction() throws Exception {
 		int userResponse = scanner.nextInt();
 		switch (userResponse) {
 		case 0:
@@ -33,12 +43,6 @@ public class MainClass {
 		default:
 			break;
 		}
-
-//		PhoneNumber $080 = new PhoneNumber("Jame", "abc", new Date());
-//		numbers.add($080);
-//		
-//		PhoneNumber $090 = new PhoneNumber("Smith", "xyz", new Date());
-//		numbers.add($090);
 	}
 
 	private static void displayPhoneNumber() {
@@ -46,7 +50,7 @@ public class MainClass {
 		for (PhoneNumber phoneNumber : phoneNumbers) {
 			System.out.printf("%10s%30s\n", "Name:", phoneNumber.getName());
 			System.out.printf("%10s%30s\n", "Email:", phoneNumber.getEmail());
-			System.out.printf("%10s%30s\n", "Date:", phoneNumber.getDateCreated());
+			System.out.printf("%10s%30s\n\n", "Date:", phoneNumber.getDateCreated());
 		}
 	}
 
@@ -80,6 +84,7 @@ public class MainClass {
 			addPhoneNumber();
 		} else {
 			displayMenu();
+			userInteraction();
 		}
 	}
 
