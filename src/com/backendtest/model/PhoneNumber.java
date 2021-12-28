@@ -8,6 +8,13 @@ public class PhoneNumber {
 	private String email;
 	private Date dateCreated;
 
+	public PhoneNumber(String name, String email, Date dateCreated) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.dateCreated = dateCreated;
+	}
+
 	public String getName() {
 		return name;
 	}

@@ -7,6 +7,6 @@ import com.backendtest.model.PhoneNumber;
 public class TestPhoneNumber {
 	ArrayList<PhoneNumber> phoneNumbers = new ArrayList<>();
 	
-	PhoneNumber one = new PhoneNumber();
+	PhoneNumber 080 = new PhoneNumber();
 	
 }
