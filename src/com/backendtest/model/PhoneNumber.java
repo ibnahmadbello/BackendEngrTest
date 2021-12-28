@@ -1,6 +1,7 @@
 package com.backendtest.model;
 
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public class PhoneNumber {
 	private String name;
@@ -19,8 +20,13 @@ public class PhoneNumber {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String email) throws Exception {
+		Pattern pattern = Pattern.compile("^(.+)@(.+)$");
+		if(email != null)
+		if(!pattern.matcher(email).matches())
+			throw new Exception("Invalid email format");
+		else
+			this.email = email.toLowerCase();
 	}
 
 	public Date getDateCreated() {
