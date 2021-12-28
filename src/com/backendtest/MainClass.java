@@ -56,7 +56,16 @@ public class MainClass {
 
 	private static void searchPhoneNumber() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Enter the number you want to search for: (name or email) ");
+		String searchKey = scanner.next();
+		for (PhoneNumber phoneNumber : phoneNumbers) {
+			if (phoneNumber.getName().equalsIgnoreCase(searchKey) || phoneNumber.getEmail().equalsIgnoreCase(searchKey)) {
+				System.out.println(searchKey + " is found.");
+				System.out.printf("%10s%30s\n", "Name:", phoneNumber.getName());
+				System.out.printf("%10s%30s\n", "Email:", phoneNumber.getEmail());
+				System.out.printf("%10s%30s\n\n", "Date:", phoneNumber.getDateCreated());
+			}
+		}		
 	}
 
 	private static void displayMenu() {
