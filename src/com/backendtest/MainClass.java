@@ -18,11 +18,6 @@ public class MainClass {
 
 		userInteraction();
 
-//		PhoneNumber $080 = new PhoneNumber("Jame", "abc", new Date());
-//		numbers.add($080);
-//		
-//		PhoneNumber $090 = new PhoneNumber("Smith", "xyz", new Date());
-//		numbers.add($090);
 	}
 
 	private static void userInteraction() throws Exception {
@@ -47,10 +42,14 @@ public class MainClass {
 
 	private static void displayPhoneNumber() {
 		// TODO Auto-generated method stub
-		for (PhoneNumber phoneNumber : phoneNumbers) {
-			System.out.printf("%10s%30s\n", "Name:", phoneNumber.getName());
-			System.out.printf("%10s%30s\n", "Email:", phoneNumber.getEmail());
-			System.out.printf("%10s%30s\n\n", "Date:", phoneNumber.getDateCreated());
+		if (phoneNumbers.size() == 0) {
+			System.out.println("No Phone Number is found.");
+		} else {
+			for (PhoneNumber phoneNumber : phoneNumbers) {
+				System.out.printf("%-10s%-30s\n", "Name:", phoneNumber.getName());
+				System.out.printf("%-10s%-30s\n", "Email:", phoneNumber.getEmail());
+				System.out.printf("%-10s%-30s\n\n", "Date:", phoneNumber.getDateCreated());
+			}
 		}
 	}
 
@@ -59,19 +58,21 @@ public class MainClass {
 		System.out.println("Enter the number you want to search for: (name or email) ");
 		String searchKey = scanner.next();
 		for (PhoneNumber phoneNumber : phoneNumbers) {
-			if (phoneNumber.getName().equalsIgnoreCase(searchKey) || phoneNumber.getEmail().equalsIgnoreCase(searchKey)) {
+			if (phoneNumber.getName().equalsIgnoreCase(searchKey)
+					|| phoneNumber.getEmail().equalsIgnoreCase(searchKey)) {
 				System.out.println(searchKey + " is found.");
-				System.out.printf("%10s%30s\n", "Name:", phoneNumber.getName());
-				System.out.printf("%10s%30s\n", "Email:", phoneNumber.getEmail());
-				System.out.printf("%10s%30s\n\n", "Date:", phoneNumber.getDateCreated());
+				System.out.printf("%-10s%-30s\n", "Name:", phoneNumber.getName());
+				System.out.printf("%-10s%-30s\n", "Email:", phoneNumber.getEmail());
+				System.out.printf("%-10s%-30s\n\n", "Date:", phoneNumber.getDateCreated());
 			}
-		}		
+		}
 	}
 
 	private static void displayMenu() {
 		System.out.println("*****Phone Book*****");
 		System.out.println("Please reply with the correct option:");
-		System.out.println("0. To quit/exit the phone book.\n1. To add a phone number\n2. To search for a number\n3. To see list of phone numbers");
+		System.out.println(
+				"0. To quit/exit the phone book.\n1. To add a phone number\n2. To search for a number\n3. To see list of phone numbers");
 	}
 
 	private static void addPhoneNumber() throws Exception {
@@ -101,14 +102,14 @@ public class MainClass {
 		// TODO Auto-generated method stub
 		boolean status = true;
 		for (PhoneNumber phoneNumber : phoneNumbers) {
-			if(phoneNumber.getName().equalsIgnoreCase(name) || phoneNumber.getEmail().equalsIgnoreCase(email)) {
+			if (phoneNumber.getName().equalsIgnoreCase(name) || phoneNumber.getEmail().equalsIgnoreCase(email)) {
 				status = false;
 			} else {
 				status = true;
 			}
 		}
 		return status;
-	
+
 	}
 
 }
